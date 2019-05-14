@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+      <h3>表单演示： 登录</h3>
+      <div *ngIf="!myForm.valid" class="alert alert-danger">
+        <strong>错误！</strong>表单无效
+      </div>
+
+
+      <div class="form-group">
+        <label for="usernameInput">用户名</label>
+        <div *ngIf="username.hasError('required')" class="alert alert-danger">
+          <strong>错误！</strong>用户名必填</div>
+        <input type="text" id="usernameInput" class="form-control"
+          [ngClass]="{'is-invalid':username.hasError('required')}" placeholder="输入用户名" name="username"
+          [formControl]="username">
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="passwordInput">密码</label>
+        <div *ngIf="password.hasError('required')" class="alert alert-danger">
+          <strong>密码必填</strong></div>
+        <input type="password" class="form-control " [ngClass]="{'is-invalid':password.hasError('required')}"
+          id="passwordInput" placeholder="输入密码" name="password" [formControl]="password">
+      </div>
+
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

@@ -1,0 +1,8 @@
+a{
+    text-emphasis: none;
+    color:seagreen;
+}
+
+li.active a{
+    color: blue;
+}
